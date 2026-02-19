@@ -91,3 +91,11 @@ Follow these steps to run the project locally.
 ---
 
 ## 📂 Project Structure
+
+
+![alt text](<Screenshot 2026-02-19 142726.png>) #flutter doctor
+
+![alt text](<Screenshot 2026-02-19 142655.png>)  #Flutter app
+
+
+
