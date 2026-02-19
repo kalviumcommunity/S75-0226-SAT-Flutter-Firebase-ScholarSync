@@ -99,3 +99,11 @@ Follow these steps to run the project locally.
 
 
 
+## 📂 Project Structure Overview
+To keep the ScholarSync codebase clean and maintainable, we follow a feature-driven folder structure. The core logic resides in the `lib/` directory, while platform-specific configurations are handled in `android/` and `ios/`. 
+
+🔗 **For a detailed breakdown of every folder and file, please see our [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md).**
+
+
+### Reflection: Why Folder Structure Matters
+Understanding the role of each folder is critical when working in a team environment. A clean structure prevents "spaghetti code" by enforcing separation of concerns. If a UI bug occurs, the team knows exactly to look in the `presentation/` folder, rather than hunting through database files. This predictability accelerates development and reduces Git conflicts.
