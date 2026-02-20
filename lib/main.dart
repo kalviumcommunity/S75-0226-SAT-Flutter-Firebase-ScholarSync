@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'firebase_options.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
+import 'screens/stateless_stateful_demo.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -24,8 +25,12 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
-      home: const AuthGate(),
-
+      
+      // 2. TEMPORARILY CHANGE THIS for your video demo:
+      home: const StatelessStatefulDemoScreen(), 
+      
+    
+      // home: const AuthGate(), 
     );
   }
 }

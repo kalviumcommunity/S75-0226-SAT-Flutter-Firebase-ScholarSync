@@ -107,3 +107,24 @@ To keep the ScholarSync codebase clean and maintainable, we follow a feature-dri
 
 ### Reflection: Why Folder Structure Matters
 Understanding the role of each folder is critical when working in a team environment. A clean structure prevents "spaghetti code" by enforcing separation of concerns. If a UI bug occurs, the team knows exactly to look in the `presentation/` folder, rather than hunting through database files. This predictability accelerates development and reduces Git conflicts.
+
+## 🧩 Stateless vs Stateful Widgets Demo
+
+As part of Sprint 2, a standalone demo screen was implemented to showcase the fundamental differences between Flutter's core building blocks: `StatelessWidget` and `StatefulWidget`.
+
+### What are they and when to use them?
+* **`StatelessWidget`**: A widget that does not require mutable state. Once it is built, its properties cannot change unless its parent forces a rebuild. 
+  * *When to use:* For static UI elements like labels, icons, or headers. In our demo, `StaticHeaderWidget` is used to display the unmoving "Study Tracker" title.
+* **`StatefulWidget`**: A widget that has internal state that can change over time. It uses the `setState()` method to trigger UI updates.
+  * *When to use:* For interactive elements like forms, animations, or counters. In our demo, `InteractiveTaskCounter` manages a task count and a "Focus Mode" toggle.
+
+### Code Snippets
+**Stateless (Static):**
+```dart
+class StaticHeaderWidget extends StatelessWidget {
+  // ... (properties)
+  @override
+  Widget build(BuildContext context) {
+    return Text(title); // Builds once and stays static
+  }
+}
