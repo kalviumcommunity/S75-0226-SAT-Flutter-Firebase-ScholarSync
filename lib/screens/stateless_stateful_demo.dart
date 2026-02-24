@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart'; // Required for debugPrint
 
 // --- MAIN SCREEN ---
 class StatelessStatefulDemoScreen extends StatelessWidget {
@@ -8,8 +9,10 @@ class StatelessStatefulDemoScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Widget Demo'),
-        backgroundColor: Colors.blueAccent,
+        // CHANGED: Updated text to demonstrate hot reload
+        title: const Text('Widget Demo - Hot Reloaded!'), 
+        // CHANGED: Updated color from blueAccent to green
+        backgroundColor: Colors.green, 
       ),
       body: const Padding(
         padding: EdgeInsets.all(20.0),
@@ -90,6 +93,8 @@ class _InteractiveTaskCounterState extends State<InteractiveTaskCounter> {
   void _incrementTasks() {
     setState(() {
       _completedTasks++;
+      // This prints directly to your Debug Console!
+      debugPrint('ScholarSync Log: Task marked as done! Total completed: $_completedTasks');
     });
   }
 
