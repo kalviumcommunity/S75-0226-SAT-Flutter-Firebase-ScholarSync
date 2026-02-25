@@ -5,6 +5,8 @@ import 'firebase_options.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/stateless_stateful_demo.dart'; 
+// 1. IMPORT YOUR NEW SCREEN
+import 'screens/material_details_screen.dart'; 
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,20 +23,29 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'ScholarSync',
+      debugShowCheckedModeBanner: false, // Hides the debug banner
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
         useMaterial3: true,
       ),
       
-      // 2. TEMPORARILY CHANGE THIS for your video demo:
-      home: const StatelessStatefulDemoScreen(), 
+      // 2. USE initialRoute INSTEAD OF home
+      initialRoute: '/', 
       
-    
-      // home: const AuthGate(), 
+      // 3. DEFINE YOUR NAMED ROUTES HERE
+      routes: {
+        // '/' is the default start page. We point it to your AuthGate to keep your login logic!
+        '/': (context) => const AuthGate(), 
+        // Route for your new details screen
+        '/material-details': (context) => const MaterialDetailsScreen(),
+        // I kept your previous demo screen here just in case you ever want to navigate to it!
+        '/demo': (context) => const StatelessStatefulDemoScreen(), 
+      },
     );
   }
 }
 
+// Your AuthGate stays exactly as it was. It perfectly handles the login check!
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
 
