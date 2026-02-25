@@ -128,3 +128,41 @@ class StaticHeaderWidget extends StatelessWidget {
     return Text(title); // Builds once and stays static
   }
 }
+
+
+## 🛠️ Flutter Debugging & DevTools
+
+As part of Sprint 2, I explored Flutter's core developer tools to improve workflow efficiency. 
+
+### 1. Hot Reload
+I modified the `AppBar` color from Blue to Green and saved the file. The UI updated instantly without losing the state of my task counter.
+*(Insert Hot Reload Screenshot Here)*
+
+### 2. Debug Console
+I replaced standard `print()` statements with `debugPrint()` inside my `setState` method to track task completions in real-time.
+*(Insert Debug Console Screenshot Here)*
+
+### 3. Flutter DevTools
+I launched DevTools to inspect the widget tree and verify the layout constraints of the ScholarSync UI.
+*(Insert DevTools Screenshot Here)*
+
+### 🧠 Reflection
+* **How does Hot Reload improve productivity?** It eliminates the need to rebuild the entire app every time a UI tweak is made. Keeping the app's state intact while tweaking UI saves countless hours.
+* **Why is DevTools useful?** It provides a visual representation of the Widget Tree, making it incredibly easy to fix layout overflow errors. The Performance and Memory tabs are also vital for catching memory leaks before production.
+* **How can you use these tools in a team?** Using `debugPrint` allows the team to leave standardized logs. DevTools helps a developer quickly understand another team member's complex widget hierarchy without having to read hundreds of lines of UI code.
+
+
+
+## 🧭 Multi-Screen Navigation & Routing
+
+In Sprint 2, I implemented seamless multi-screen navigation for ScholarSync using Flutter's `Navigator` and Named Routes. This allows users to move from the main Dashboard to specific study material views.
+
+### Code Snippets
+
+**Defining Routes in `main.dart`:**
+```dart
+initialRoute: '/dashboard', 
+routes: {
+  '/dashboard': (context) => const DashboardScreen(),
+  '/material-details': (context) => const MaterialDetailsScreen(),
+},
