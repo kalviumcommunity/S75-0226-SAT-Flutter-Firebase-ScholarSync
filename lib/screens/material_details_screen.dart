@@ -5,7 +5,7 @@ class MaterialDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Catch the argument passed from the previous screen
+    // This line catches the argument (the material name) passed from the Dashboard!
     final materialName = ModalRoute.of(context)!.settings.arguments as String?;
 
     return Scaffold(
@@ -20,18 +20,20 @@ class MaterialDetailsScreen extends StatelessWidget {
           children: [
             const Icon(Icons.picture_as_pdf, size: 80, color: Colors.redAccent),
             const SizedBox(height: 20),
+            // Display the dynamic name passed via routing
             Text(
               materialName ?? 'Unknown Material',
               style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10),
-            const Text('Read this PDF to complete your assignment.'),
+            const Text('Read this document to complete your assignment.'),
             const SizedBox(height: 40),
-            // Explicit Pop Button (Though AppBar has a back arrow automatically)
+            
+            // The magic POP button!
             ElevatedButton.icon(
               onPressed: () {
-                Navigator.pop(context); // This pops the screen off the stack!
+                Navigator.pop(context); // Returns the user to the previous screen
               },
               icon: const Icon(Icons.arrow_back),
               label: const Text('Back to Dashboard'),
