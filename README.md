@@ -168,3 +168,17 @@ routes: {
 },
 
 
+## 📱 Responsive Layouts with Rows, Columns, & Containers
+
+In Sprint 2, I explored building adaptive interfaces for ScholarSync to ensure the app looks professional on both mobile phones and tablets.
+
+### Code Snippet: Adaptive Logic
+Using `MediaQuery`, the app dynamically switches between a `Column` and a `Row` based on the available screen width.
+```dart
+double screenWidth = MediaQuery.of(context).size.width;
+bool isTabletOrLandscape = screenWidth > 600;
+
+// Inside the build method:
+isTabletOrLandscape 
+  ? Row(children: [ Expanded(child: stats), Expanded(child: activity) ])
+  : Column(children: [ stats, Expanded(child: activity) ]);
