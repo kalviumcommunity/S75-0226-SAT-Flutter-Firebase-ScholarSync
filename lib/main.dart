@@ -6,6 +6,7 @@ import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/stateless_stateful_demo.dart'; 
 // 1. IMPORT YOUR NEW SCREEN
+import 'screens/user_input_form.dart';
 import 'screens/material_details_screen.dart'; 
 
 void main() async {
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
       
       // 2. USE initialRoute INSTEAD OF home
-      initialRoute: '/', 
+      initialRoute: '/add-student', 
       
       // 3. DEFINE YOUR NAMED ROUTES HERE
       routes: {
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         '/material-details': (context) => const MaterialDetailsScreen(),
         // I kept your previous demo screen here just in case you ever want to navigate to it!
         '/demo': (context) => const StatelessStatefulDemoScreen(), 
+        '/add-student': (context) => const UserInputForm(), 
       },
     );
   }
