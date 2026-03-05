@@ -8,6 +8,7 @@ import 'screens/stateless_stateful_demo.dart';
 // 1. IMPORT YOUR NEW SCREEN
 import 'screens/user_input_form.dart';
 import 'screens/material_details_screen.dart'; 
+import 'screens/state_management_demo.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -42,6 +43,7 @@ class MyApp extends StatelessWidget {
         // I kept your previous demo screen here just in case you ever want to navigate to it!
         '/demo': (context) => const StatelessStatefulDemoScreen(), 
         '/add-student': (context) => const UserInputForm(), 
+        '/attendance': (context) => const AttendanceTrackerScreen(),
       },
     );
   }

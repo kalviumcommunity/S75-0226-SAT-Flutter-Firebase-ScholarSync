@@ -182,3 +182,32 @@ bool isTabletOrLandscape = screenWidth > 600;
 isTabletOrLandscape 
   ? Row(children: [ Expanded(child: stats), Expanded(child: activity) ])
   : Column(children: [ stats, Expanded(child: activity) ]);
+
+  ## 📝 Handling User Input & Form Validation
+
+In Sprint 2, I implemented a robust "Add New Student" registration form for ScholarSync using Flutter's `Form`, `TextFormField`, and `TextEditingController`. 
+
+### Code Snippets
+**Validation Logic inside TextFormField:**
+```dart
+validator: (value) {
+  if (value == null || value.isEmpty) {
+    return 'Please enter an email address.';
+  } else if (!value.contains('@') || !value.contains('.')) {
+    return 'Please enter a valid email address.';
+  }
+  return null;
+}
+
+## 🔄 State Management with `setState`
+
+In Sprint 2, I implemented local state management by creating a Live Attendance Tracker for ScholarSync. This allowed me to explore how Flutter's reactive UI updates dynamically based on user interaction. 
+
+### Code Snippets
+**Updating State:**
+```dart
+void _markPresent() {
+  setState(() {
+    if (_presentStudents < _totalStudents) _presentStudents++;
+  });
+}
