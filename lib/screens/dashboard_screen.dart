@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_primary_button.dart';
 
 class DashboardScreen extends StatelessWidget {
   // Keeping the user parameter optional for the demo
@@ -18,6 +19,15 @@ class DashboardScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            CustomPrimaryButton(
+              label: 'Add New Student',
+              icon: Icons.person_add,
+              backgroundColor: Colors.teal, // Overriding the default color
+              onPressed: () {
+                Navigator.pushNamed(context, '/add-student');
+              },
+            ),
+            const SizedBox(height: 30),
             const Text(
               'Recent Study Materials',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),

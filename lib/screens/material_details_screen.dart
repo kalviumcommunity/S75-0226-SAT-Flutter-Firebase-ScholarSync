@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../widgets/custom_primary_button.dart';
 
 class MaterialDetailsScreen extends StatelessWidget {
   const MaterialDetailsScreen({super.key});
@@ -30,14 +31,22 @@ class MaterialDetailsScreen extends StatelessWidget {
             const Text('Read this document to complete your assignment.'),
             const SizedBox(height: 40),
             
-            // The magic POP button!
-            ElevatedButton.icon(
+            CustomPrimaryButton(
+              label: 'Back to Dashboard',
+              icon: Icons.arrow_back,
+              // Notice we don't pass a color here, so it uses the default Indigo!
               onPressed: () {
-                Navigator.pop(context); // Returns the user to the previous screen
+                Navigator.pop(context); 
               },
-              icon: const Icon(Icons.arrow_back),
-              label: const Text('Back to Dashboard'),
             ),
+            // The magic POP button!
+            // ElevatedButton.icon(
+            //   onPressed: () {
+            //     Navigator.pop(context); // Returns the user to the previous screen
+            //   },
+            //   icon: const Icon(Icons.arrow_back),
+            //   label: const Text('Back to Dashboard'),
+            // ),
           ],
         ),
       ),
