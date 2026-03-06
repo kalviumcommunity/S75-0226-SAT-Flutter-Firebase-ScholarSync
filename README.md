@@ -211,3 +211,18 @@ void _markPresent() {
     if (_presentStudents < _totalStudents) _presentStudents++;
   });
 }
+
+## 🧩 Reusable Custom Widgets
+
+To keep the ScholarSync codebase DRY (Don't Repeat Yourself) and ensure UI consistency, I created a custom widget directory and built reusable UI components.
+
+### Code Snippets
+**Defining the Custom Widget (`custom_primary_button.dart`):**
+```dart
+class CustomPrimaryButton extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final VoidCallback onPressed;
+  final Color backgroundColor;
+  // ... constructor and build method applying strict styling rules
+}
