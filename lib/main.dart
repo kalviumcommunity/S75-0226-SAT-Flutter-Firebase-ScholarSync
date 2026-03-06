@@ -5,10 +5,10 @@ import 'firebase_options.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/login_screen.dart';
 import 'screens/stateless_stateful_demo.dart'; 
-// 1. IMPORT YOUR NEW SCREEN
 import 'screens/user_input_form.dart';
 import 'screens/material_details_screen.dart'; 
 import 'screens/state_management_demo.dart';
+import 'screens/responsive_dashboard_layout.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
       ),
       
       // 2. USE initialRoute INSTEAD OF home
-      initialRoute: '/add-student', 
+      initialRoute: '/responsive', 
       
       // 3. DEFINE YOUR NAMED ROUTES HERE
       routes: {
@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const AuthGate(), 
         // Route for your new details screen
         '/material-details': (context) => const MaterialDetailsScreen(),
+        '/responsive': (context) => const ResponsiveDashboardLayout(),
         // I kept your previous demo screen here just in case you ever want to navigate to it!
         '/demo': (context) => const StatelessStatefulDemoScreen(), 
         '/add-student': (context) => const UserInputForm(), 
