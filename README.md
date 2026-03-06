@@ -226,3 +226,17 @@ class CustomPrimaryButton extends StatelessWidget {
   final Color backgroundColor;
   // ... constructor and build method applying strict styling rules
 }
+
+
+## 📐 Adaptive UI with MediaQuery & LayoutBuilder
+
+In Sprint 2, I combined `MediaQuery` and `LayoutBuilder` to ensure ScholarSync provides a native-feeling experience across both mobile phones and tablets without any overflow errors. 
+
+### Code Snippets
+**Using MediaQuery for Relative Sizing:**
+```dart
+var screenHeight = MediaQuery.of(context).size.height;
+var screenWidth = MediaQuery.of(context).size.width;
+
+// Creating a hero card that takes 90% width and 20% height dynamically
+_buildHeroCard(screenWidth * 0.9, screenHeight * 0.2);
