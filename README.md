@@ -1,49 +1,49 @@
 # 🎓 ScholarSync
 
-*ScholarSync* is a Flutter-based mobile application designed to streamline the workflow of small coaching centers. It provides an organized platform for teachers to distribute study materials and a transparent system to monitor student progress, simplifying the educational loop.
+**ScholarSync** is a Flutter-based mobile application designed to streamline the workflow of small coaching centers. It provides an organized platform for teachers to distribute study materials and a transparent system to monitor student progress, simplifying the educational loop.
 
 ---
 
 ## 🚀 Problem Statement
 Small coaching centers often struggle with disorganized study material distribution (WhatsApp/Drive links) and lack a verifiable way to track if students have actually completed their assigned work. 
 
-*ScholarSync* solves this by offering:
-1.  *Centralized Material Hub:* A structured library for PDFs, videos, and notes.
-2.  *Progress Tracking:* Real-time visibility for teachers into who has viewed or completed tasks.
-3.  *Simplified Workflow:* A clean, focused UI that removes the clutter of general-purpose chat apps.
+**ScholarSync** solves this by offering:
+1.  **Centralized Material Hub:** A structured library for PDFs, videos, and notes.
+2.  **Progress Tracking:** Real-time visibility for teachers into who has viewed or completed tasks.
+3.  **Simplified Workflow:** A clean, focused UI that removes the clutter of general-purpose chat apps.
 
 ---
 
 ## 📱 Features
 
 ### 👨‍🏫 For Teachers
-* *Material Upload:* Easily upload PDFs, video links, and assignments to specific subject categories.
-* *Student Monitoring:* View a list of students and their completion status (e.g., "85% Completed").
-* *Task Management:* Create "Due Dates" and priority tags for assignments.
+* **Material Upload:** Easily upload PDFs, video links, and assignments to specific subject categories.
+* **Student Monitoring:** View a list of students and their completion status (e.g., "85% Completed").
+* **Task Management:** Create "Due Dates" and priority tags for assignments.
 
 ### 👩‍🎓 For Students
-* *Personalized Dashboard:* See "Pending Tasks" and "Recent Materials" at a glance.
-* *Interactive Learning:* Mark tasks as "Done" and track personal progress visually.
-* *Organized Library:* Filter materials by Subject (Math, Science, English) or Type (Notes, Video).
+* **Personalized Dashboard:** See "Pending Tasks" and "Recent Materials" at a glance.
+* **Interactive Learning:** Mark tasks as "Done" and track personal progress visually.
+* **Organized Library:** Filter materials by Subject (Math, Science, English) or Type (Notes, Video).
 
 ---
 
 ## 🛠️ Tech Stack & Architecture
 
-This project follows a *Modern Android Architecture* using Flutter and Firebase.
+This project follows a **Modern Android Architecture** using Flutter and Firebase.
 
-* *Frontend:* Flutter (Dart)
-* *Backend:* Firebase (Serverless)
-* *State Management:* Riverpod (for reactive UI and dependency injection)
-* *Architecture:* MVVM (Model-View-ViewModel)
+* **Frontend:** Flutter (Dart)
+* **Backend:** Firebase (Serverless)
+* **State Management:** Riverpod (for reactive UI and dependency injection)
+* **Architecture:** MVVM (Model-View-ViewModel)
 
 ### Firebase Services Used:
 | Service | Purpose |
 | :--- | :--- |
-| *Authentication* | Secure Email/Password & Google Sign-In for Teachers/Students. |
-| *Cloud Firestore* | NoSQL database to store User Profiles, Tasks, and Material metadata. |
-| *Cloud Storage* | Secure hosting for PDF files and profile images. |
-| *Cloud Functions* | (Optional) Sending push notifications for new assignments. |
+| **Authentication** | Secure Email/Password & Google Sign-In for Teachers/Students. |
+| **Cloud Firestore** | NoSQL database to store User Profiles, Tasks, and Material metadata. |
+| **Cloud Storage** | Secure hosting for PDF files and profile images. |
+| **Cloud Functions** | *(Optional)* Sending push notifications for new assignments. |
 
 ---
 
@@ -51,9 +51,9 @@ This project follows a *Modern Android Architecture* using Flutter and Firebase.
 
 | Teacher Dashboard | Student View | Material Library |
 |:---:|:---:|:---:|
-| (Add Screenshot) | (Add Screenshot) | (Add Screenshot) |
+| *(Add Screenshot)* | *(Add Screenshot)* | *(Add Screenshot)* |
 
-> Note: The UI is designed using Material 3 principles, ensuring a responsive layout that works on both Mobile and Tablets.
+> *Note: The UI is designed using Material 3 principles, ensuring a responsive layout that works on both Mobile and Tablets.*
 
 ---
 
@@ -64,49 +64,54 @@ Follow these steps to run the project locally.
 ### Prerequisites
 * Flutter SDK (Version 3.x or later)
 * Dart SDK
-* A Firebase Project (configured with google-services.json)
+* A Firebase Project (configured with `google-services.json`)
 
 ### Steps
-1.  *Clone the Repository*
-    bash
+1.  **Clone the Repository**
+    ```bash
     git clone [https://github.com/yourusername/scholarsync.git](https://github.com/yourusername/scholarsync.git)
     cd scholarsync
-    
+    ```
 
-2.  *Install Dependencies*
-    bash
+2.  **Install Dependencies**
+    ```bash
     flutter pub get
-    
+    ```
 
-3.  *Firebase Configuration*
+3.  **Firebase Configuration**
     * Create a project on [Firebase Console](https://console.firebase.google.com/).
-    * Add an Android app and download google-services.json.
-    * Place the file in android/app/.
+    * Add an Android app and download `google-services.json`.
+    * Place the file in `android/app/`.
 
-4.  *Run the App*
-    bash
+4.  **Run the App**
+    ```bash
     flutter run
-    
+    ```
 
 ---
 
 ## 📂 Project Structure
 
-
-![alt text](<Screenshot 2026-02-19 142726.png>) #flutter doctor
-
-![alt text](<Screenshot 2026-02-19 142655.png>)  #Flutter app
-
-
-
-## 📂 Project Structure Overview
-To keep the ScholarSync codebase clean and maintainable, we follow a feature-driven folder structure. The core logic resides in the `lib/` directory, while platform-specific configurations are handled in `android/` and `ios/`. 
-
-🔗 **For a detailed breakdown of every folder and file, please see our [PROJECT_STRUCTURE.md](PROJECT_STRUCTURE.md).**
+lib/
+├── core/                # Constants, Themes, and Utility functions
+├── data/                # Repositories and Data Models (Firestore logic)
+├── logic/               # State Management (Riverpod Providers)
+├── presentation/        # UI Screens and Widgets
+│   ├── dashboard/       # Home screens for Student/Teacher
+│   ├── library/         # Material list and details
+│   └── profile/         # User settings
+└── main.dart            # Entry point
 
 
-### Reflection: Why Folder Structure Matters
-Understanding the role of each folder is critical when working in a team environment. A clean structure prevents "spaghetti code" by enforcing separation of concerns. If a UI bug occurs, the team knows exactly to look in the `presentation/` folder, rather than hunting through database files. This predictability accelerates development and reduces Git conflicts.
+---
+
+## 🤝 Contributing
+1.  Fork the repository.
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
+
 
 ## 🧩 Stateless vs Stateful Widgets Demo
 
@@ -128,7 +133,6 @@ class StaticHeaderWidget extends StatelessWidget {
     return Text(title); // Builds once and stays static
   }
 }
-
 
 ## 🛠️ Flutter Debugging & DevTools
 
@@ -168,6 +172,21 @@ routes: {
 },
 
 
+
+## 🧭 Multi-Screen Navigation & Routing
+
+For Sprint 2, I implemented seamless multi-screen navigation for ScholarSync using Flutter's `Navigator` and Named Routes. This allows users to move from the main Dashboard to specific study material views.
+
+### Routing Configuration (`main.dart`)
+```dart
+initialRoute: '/', 
+routes: {
+  '/': (context) => const AuthGate(),
+  '/material-details': (context) => const MaterialDetailsScreen(),
+},
+
+
+
 ## 📱 Responsive Layouts with Rows, Columns, & Containers
 
 In Sprint 2, I explored building adaptive interfaces for ScholarSync to ensure the app looks professional on both mobile phones and tablets.
@@ -182,6 +201,9 @@ bool isTabletOrLandscape = screenWidth > 600;
 isTabletOrLandscape 
   ? Row(children: [ Expanded(child: stats), Expanded(child: activity) ])
   : Column(children: [ stats, Expanded(child: activity) ]);
+
+
+
 
   ## 📝 Handling User Input & Form Validation
 
@@ -199,6 +221,8 @@ validator: (value) {
   return null;
 }
 
+
+
 ## 🔄 State Management with `setState`
 
 In Sprint 2, I implemented local state management by creating a Live Attendance Tracker for ScholarSync. This allowed me to explore how Flutter's reactive UI updates dynamically based on user interaction. 
@@ -211,6 +235,7 @@ void _markPresent() {
     if (_presentStudents < _totalStudents) _presentStudents++;
   });
 }
+
 
 ## 🧩 Reusable Custom Widgets
 
@@ -240,3 +265,17 @@ var screenWidth = MediaQuery.of(context).size.width;
 
 // Creating a hero card that takes 90% width and 20% height dynamically
 _buildHeroCard(screenWidth * 0.9, screenHeight * 0.2);
+
+
+
+## 🖼️ Managing Images, Icons, and Local Assets
+
+In Sprint 2, I configured local asset management for ScholarSync. This allows the app to serve custom logos, banner images, and icons efficiently.
+
+### Code Snippets
+**Registering Assets in `pubspec.yaml`:**
+```yaml
+flutter:
+  assets:
+    - assets/images/
+    - assets/icons/
