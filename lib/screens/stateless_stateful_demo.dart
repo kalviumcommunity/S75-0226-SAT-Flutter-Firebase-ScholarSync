@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart'; // Required for debugPrint
 
 // --- MAIN SCREEN ---
 class StatelessStatefulDemoScreen extends StatelessWidget {
@@ -132,7 +131,7 @@ class _InteractiveTaskCounterState extends State<InteractiveTaskCounter> {
               Switch(
                 value: _isFocusMode,
                 onChanged: _toggleFocusMode,
-                activeColor: Colors.blueAccent,
+                activeThumbColor: Colors.blueAccent,
               ),
             ],
           ),

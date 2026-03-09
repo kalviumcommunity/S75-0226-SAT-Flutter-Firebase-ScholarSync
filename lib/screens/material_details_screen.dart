@@ -1,55 +1,119 @@
 import 'package:flutter/material.dart';
-import '../widgets/custom_primary_button.dart';
 
 class MaterialDetailsScreen extends StatelessWidget {
   const MaterialDetailsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // This line catches the argument (the material name) passed from the Dashboard!
-    final materialName = ModalRoute.of(context)!.settings.arguments as String?;
+    final args = ModalRoute.of(context)?.settings.arguments;
+    final details = args is Map<String, String> ? args : <String, String>{};
+    final title = details['title'] ?? (args is String ? args : 'Unknown Material');
+    final subject = details['subject'] ?? 'General';
+    final type = details['type'] ?? 'Resource';
+    final dueDate = details['dueDate'] ?? 'Not set';
+    final uploadedAt = details['uploadedAt'] ?? 'Not available';
+    final completion = details['completion'] ?? 'No completion data';
 
     return Scaffold(
       appBar: AppBar(
         title: const Text('Material Details'),
-        backgroundColor: Colors.indigo,
-        foregroundColor: Colors.white,
       ),
-      body: Center(
+      body: Padding(
+        padding: const EdgeInsets.all(16),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.picture_as_pdf, size: 80, color: Colors.redAccent),
-            const SizedBox(height: 20),
-            // Display the dynamic name passed via routing
-            Text(
-              materialName ?? 'Unknown Material',
-              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(18),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primaryContainer,
+                borderRadius: BorderRadius.circular(16),
+              ),
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 26,
+                    child: Icon(_iconForType(type), size: 28),
+                  ),
+                  const SizedBox(width: 14),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(height: 4),
+                        Text('$subject • $type'),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 10),
-            const Text('Read this document to complete your assignment.'),
-            const SizedBox(height: 40),
-            
-            CustomPrimaryButton(
-              label: 'Back to Dashboard',
-              icon: Icons.arrow_back,
-              // Notice we don't pass a color here, so it uses the default Indigo!
-              onPressed: () {
-                Navigator.pop(context); 
-              },
+            const SizedBox(height: 16),
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(14),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    _detailRow('Due Date', dueDate),
+                    const SizedBox(height: 10),
+                    _detailRow('Uploaded On', uploadedAt),
+                    const SizedBox(height: 10),
+                    _detailRow('Progress', completion),
+                  ],
+                ),
+              ),
             ),
-            // The magic POP button!
-            // ElevatedButton.icon(
-            //   onPressed: () {
-            //     Navigator.pop(context); // Returns the user to the previous screen
-            //   },
-            //   icon: const Icon(Icons.arrow_back),
-            //   label: const Text('Back to Dashboard'),
-            // ),
+            const SizedBox(height: 16),
+            const Text(
+              'Read or watch this material and update your task status from the dashboard.',
+            ),
+            const Spacer(),
+            SizedBox(
+              width: double.infinity,
+              child: FilledButton.icon(
+                onPressed: () => Navigator.pop(context),
+                icon: const Icon(Icons.arrow_back),
+                label: const Text('Back to Dashboard'),
+              ),
+            ),
           ],
         ),
       ),
     );
+  }
+
+  Widget _detailRow(String title, String value) {
+    return Row(
+      children: [
+        SizedBox(
+          width: 90,
+          child: Text(
+            title,
+            style: const TextStyle(fontWeight: FontWeight.w600),
+          ),
+        ),
+        Expanded(child: Text(value)),
+      ],
+    );
+  }
+
+  IconData _iconForType(String type) {
+    switch (type) {
+      case 'PDF':
+        return Icons.picture_as_pdf_outlined;
+      case 'Video':
+        return Icons.play_circle_outline;
+      default:
+        return Icons.sticky_note_2_outlined;
+    }
   }
 }
